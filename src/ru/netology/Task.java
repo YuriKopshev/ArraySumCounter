@@ -34,6 +34,7 @@ public class Task extends RecursiveTask<Integer> {
         Task left = new Task(array, low, mid);
         Task right = new Task(array, mid, high);
         left.fork();
+        right.fork();
         int rightResult = right.compute();
         int leftResult = left.join();
         return leftResult + rightResult;
